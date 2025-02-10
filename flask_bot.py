@@ -8,7 +8,7 @@ app = Quart(__name__)
 def home():
     return "I'm alive"
 
-@app.route('send/', methods=['POST'])
+@app.route('/send', methods=['POST'])
 async def receive_data():
     try:
         # Check if the Content-Type is application/json
