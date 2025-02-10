@@ -3,7 +3,12 @@ from main import get_web
 
 app = Quart(__name__)
 
-@app.route('/', methods=['POST'])
+
+@app.route('/')
+def home():
+    return "I'm alive"
+
+@app.route('send/', methods=['POST'])
 async def receive_data():
     try:
         # Check if the Content-Type is application/json
