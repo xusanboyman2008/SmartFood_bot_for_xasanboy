@@ -1,4 +1,3 @@
-from aiogram.types import Message
 from quart import Quart, request, jsonify
 from main import get_web
 
@@ -10,11 +9,7 @@ async def receive_data():
         # Check if the Content-Type is application/json
         if not request.is_json:
             return jsonify({"status": "error", "message": "Content-Type must be application/json"}), 415
-
-        # Get the JSON data from the request
         payload = await request.json
-
-        # Extract 'data' and 'user_id' from the payload
         data = payload.get('data')
         user_id = payload.get('user_id')
         message_id = payload.get('message_id')
