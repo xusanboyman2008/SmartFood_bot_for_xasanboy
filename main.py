@@ -21,6 +21,8 @@ from sqlalchemy import Column, Integer, String, ForeignKey, select, DateTime, Fl
 from sqlalchemy.ext.asyncio import AsyncAttrs, create_async_engine, async_sessionmaker, AsyncSession
 from sqlalchemy.orm import DeclarativeBase
 
+from keep_alive import keep_alive
+
 
 def generate_token(length=16):
     return ''.join(secrets.choice(string.ascii_letters) for _ in range(length))
@@ -1327,6 +1329,8 @@ async def main():
 
 if __name__ == "__main__":
     try:
+        keep_alive()
         asyncio.run(main())
+
     except KeyboardInterrupt:
         print('Bye')
