@@ -33,8 +33,8 @@ TOKEN = "7874928619:AAHdmduqLLfYUQF-Tgw_aXYcMp41X3maLTc"
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
-DATABASE_URL = "sqlite+aiosqlite:///database.sqlite3"
-# DATABASE_URL = "postgresql+asyncpg://smart_food_user:IAb8lvnJBTGbiJBpol4Yti6k5yhRuC2o@dpg-cu8i7t8gph6c73cpshe0-a.oregon-postgres.render.com/smart_food"
+# DATABASE_URL = "sqlite+aiosqlite:///database.sqlite3"
+DATABASE_URL = "postgresql+asyncpg://smart_food_user:IAb8lvnJBTGbiJBpol4Yti6k5yhRuC2o@dpg-cu8i7t8gph6c73cpshe0-a.oregon-postgres.render.com/smart_food"
 engine = create_async_engine(DATABASE_URL, future=True)
 async_session = async_sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
 
