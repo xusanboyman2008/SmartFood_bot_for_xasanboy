@@ -860,7 +860,8 @@ async def get_web(data, user_id, message_id):  # 'state' should be an instance o
     text = ''
     total = 0
     new_arr = []
-    for i in data:
+    formated_data = ast.literal_eval(data)
+    for i in formated_data:
         quantity = i.split(':')[1]
         id = i.split(':')[0]
         product = await get_product_cost(id)

@@ -10,12 +10,10 @@ def home():
 
 @app.route('/send', methods=['POST'])
 async def receive_data():
-    try:
-        # Check if the Content-Type is application/json
-        if not request.is_json:
-            return jsonify({"status": "error", "message": "Content-Type must be application/json"}), 415
-        payload = await request.json
+    # try:
+        payload = await request.form
         data = payload.get('data')
+        print(data)
         user_id = payload.get('user_id')
         message_id = payload.get('message_id')
 
@@ -27,10 +25,10 @@ async def receive_data():
         await get_web(data=data, user_id=user_id,message_id=message_id)
 
         return jsonify({"status": "success"}), 200
-
-    except Exception as e:
-        return jsonify({"status": "error", "message": str(e)}), 500
+    #
+    # except Exception as e:
+    #     return jsonify({"status": "error", "message": str(e)}), 500
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='127.0.0.1', port=8000)
