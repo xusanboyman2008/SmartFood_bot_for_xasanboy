@@ -3,4 +3,5 @@ geopy~=2.4.1
 SQLAlchemy~=2.0.36
 requests~=2.32.3
 aiosqlite
+asyncpg
 Quart~=0.20.0
